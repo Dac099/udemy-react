@@ -1,7 +1,8 @@
 import "./index.css";
 import ExpensesList from './components/ExpensesList/ExpensesList';
+import NewExpense from './components/NewExpense/NewExpense';
 
-function App() {
+const App = () => {
   const expenses = [
     {
       id: "e1",
@@ -29,8 +30,13 @@ function App() {
     },
   ];
 
+  const newExpenseHandler = expense => {
+    console.log(expense);
+  }
+
   return (
     <main className="app">
+      <NewExpense onHandleSave={newExpenseHandler}/>
       <ExpensesList expenses={expenses}/>      
     </main>
   );
